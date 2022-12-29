@@ -1,0 +1,62 @@
+.ce_main {
+
+    display: flex;
+    position: relative;
+    z-index: 999999;
+    cursor: pointer;
+    
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+#ce_button {
+    padding: 60px 30px;
+    border-radius: 5px;
+
+    font-size: 30px;
+
+    background-color: black;
+
+    cursor: pointer;
+}
+
+.sumerize-bubble {
+  display: flex;
+  position: relative;
+	width: 500px;
+	height: auto;
+  padding: 1em;
+	text-align: left;
+  line-height: 1.5em;
+	background-color: white;
+  border-radius: 20px;
+  border: 2px solid black;
+}
+
+/*Right triangle, placed bottom left side slightly in*/
+.sumerize-bubble:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 37px;
+  right: auto;
+  top: auto;
+	top: -23px;
+	border: 11px solid;
+	border-color: transparent transparent black black;
+}
+
+.sumerize-bubble:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 38px;
+  right: auto;
+  top: auto;
+	top: -20px;
+	border: 12px solid;
+	border-color: transparent transparent white white;
+}

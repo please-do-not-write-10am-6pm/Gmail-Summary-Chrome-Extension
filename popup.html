@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 230px;
+            height: fit;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+
+            color: black;
+            font-size: 16px;
+            background-color: whitesmoke;
+        }
+        p {
+            font-size:12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="result">
+        Gmail Summary
+    </div>
+    <div id="result"></div>
+
+    <form>
+        <label for="apiKeyInput">API Key:</label><br>
+        <input type="text" id="apiKeyInput" value=""><br>
+        <button id="saveButton">Save</button>
+    </form> 
+    <script>
+        const saveButton = document.getElementById('saveButton');
+
+        // Add an event listener to the button to listen for clicks
+        saveButton.addEventListener('click', function() {
+          // Get the input element
+          const apiKeyInput = document.getElementById('apiKeyInput');
+
+          // Change the value of the input field to "API SAVED"
+          apiKeyInput.value = 'API SAVED';
+
+          // Save the value of the input field in the extension's local storage
+          chrome.storage.local.set({ apiKey: apiKeyInput.value }, function() {
+            console.log('API key saved');
+          });
+        });
+       
+        chrome.storage.local.get(['apiKey'], function(result) {
+          const apiKey = result.apiKey;
+          alert('API key:', apiKey);
+        });
+document.getElementById('result').innerHTML = 'New value';
+    </script>
+
+</body>
+
+</html>
